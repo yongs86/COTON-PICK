@@ -1,12 +1,10 @@
 ---
+import symbol from '../assets/andu-symbol.svg?raw';
 interface Props { size?: number }
 const {size = 48} = Astro.props;
+const artwork = symbol.trim().replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
 ---
-<!-- 임시 벡터 심볼: 확정 A-2 원본 수급 후 교체. 실제 사진 기반 완성 BI가 아님. -->
-<svg width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden="true">
-  <path d="M23 38C10 34 9 52 16 63c-3 17 12 22 22 20 9 9 22 9 30 0 17 2 25-10 19-23 8-14-2-27-14-24C67 19 52 20 48 27 35 18 22 23 23 38Z" fill="#fffdf6" stroke="currentColor" stroke-width="4"/>
-  <path d="M25 43c-4 4-5 9-3 15M76 43c4 4 5 9 3 15" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="37" cy="54" r="4" fill="currentColor"/><circle cx="64" cy="54" r="4" fill="currentColor"/>
-  <path d="M45 65q5-6 10 0-1 7-5 7t-5-7Z" fill="currentColor"/>
-  <path d="M42 77q8 5 16 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+<!-- 앙두의 긴 귀와 머리 묶음을 반영한 선형 심볼. -->
+<svg width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false">
+  <Fragment set:html={artwork}/>
 </svg>

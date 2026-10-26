@@ -56,7 +56,7 @@ draft: true
 1. 실제 사진 3장은 `src/assets/andu-01.png`~`andu-03.png`로 반영되어 있습니다. 추가·교체 기준은 `src/assets/README.md`를 확인합니다.
 2. 원본 사진 촬영 사실을 글의 경험과 연결할 때 실제 촬영 장소·날짜를 확인합니다. 원본만으로 확인되지 않는 사실은 적지 않습니다.
 3. 각 Markdown의 imageAlt를 실제 장면과 일치시킵니다. 홈의 Photo alt도 수정합니다.
-4. `Mark.astro`, favicon의 임시 심볼을 **확정 A-2 로고**로 교체합니다. 컬러는 CSS 상단의 변수에서 관리합니다.
+4. 로고 심볼 원본은 `src/assets/andu-symbol.svg`입니다. `Mark.astro`가 이 원본을 표시하며 빌드 시 `scripts/sync-brand.mjs`가 공개 SVG와 파비콘을 동기화합니다. 원본 한 곳을 수정하고 재빌드합니다.
 5. 목록·상세·홈을 모바일과 PC에서 확인합니다.
 
 ## 검색과 목록의 계산 기준
