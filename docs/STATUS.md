@@ -14,7 +14,7 @@
 1. 확정 A-2 로고/시안 원본 확보
 2. Mark.astro·favicon·OG에 확정 BI 반영
 3. 예시 글을 실제 콘텐츠로 교체하거나 draft 처리. sample false는 사실 확인 후 적용
-4. 실제 GitHub 저장소 게시 및 Pages 연결, SITE_URL 설정 및 OG PNG 확인
+4. GitHub 소스 게시 완료(yongs86/COTON-PICK). Pages 연결, SITE_URL 설정 및 OG PNG 확인 진행
 5. 운영 주소에서 검색·상세·404·sitemap 재확인
 
 ## 새 세션 실행 지시문

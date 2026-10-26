@@ -1,6 +1,6 @@
 # GitHub + Cloudflare Pages Free 배포
 
-확인 기준: 2026-10-23. 이 프로젝트는 정적 HTML을 생성하므로 Cloudflare 어댑터, Workers, Functions, API 키가 필요하지 않습니다. 배포 자체는 이번 작업에서 실행하지 않았습니다.
+확인 기준: 2026-10-26. 이 프로젝트는 정적 HTML을 생성하므로 Cloudflare 어댑터, Workers, Functions, API 키가 필요하지 않습니다. 소스는 [yongs86/COTON-PICK](https://github.com/yongs86/COTON-PICK)에 게시됐으며 Cloudflare Pages 배포 연결은 진행 중입니다.
 
 ## 1. GitHub에 소스 올리기
 

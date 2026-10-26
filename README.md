@@ -8,7 +8,7 @@
 - Markdown 예시 6편. 모두 예시 배지 및 안내문 표시. 예시 상세는 noindex, sitemap에서 제외
 - Instagram은 `https://www.instagram.com/andu.coton/` 외부 링크. 로그인·API·피드 자동 수집 없음
 - **사용자가 첨부한 실제 앙두 사진 3장 반영.** 홈 대표·소개·콘텐츠 카드·상세에 배치. 확정 A-2 로고 원본은 미확보 상태로 심볼은 임시 벡터 유지
-- GitHub 저장소 생성·게시 및 Cloudflare 계정 연결·배포는 실행하지 않음
+- GitHub 소스 게시 완료: [yongs86/COTON-PICK](https://github.com/yongs86/COTON-PICK). Cloudflare 연결·배포는 진행 중
 - 초기 배포 기본값은 `SITE_STAGE=preview`: 미리보기 안내, 전체 noindex, robots 제외, 빈 sitemap. 정식 공개 시 production으로 변경 후 재빌드
 
 ## 실행
