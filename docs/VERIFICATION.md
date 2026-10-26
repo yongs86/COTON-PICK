@@ -25,9 +25,8 @@
 
 - 확정 A-2 로고 및 기존 시안과 대조
 - 실제 기록·장소 정보로 예시 교체 또는 초안 처리
-- 실제 배포 주소를 SITE_URL에 설정
-- GitHub 게시, Cloudflare 연결 및 실제 운영 주소에서 최종 확인
+- SITE_STAGE=production 전환 전 확정 BI·실제 콘텐츠 최종 검수
 
-`pnpm release-check`에서 사진 미등록은 해소되었습니다. 예시 글·주소 항목은 여전히 실패하도록 설계되어 있습니다. 소스 빌드 오류를 의미하지 않습니다.
+GitHub 게시 및 Cloudflare Pages 첫 배포가 성공했습니다. 주소는 https://coton-pick.pages.dev/ 이고 SITE_URL도 같은 값으로 설정했습니다. 현재 미리보기 모드로 운영하며 `pnpm release-check`는 예시 글을 정식 콘텐츠로 바꾸기 전까지 실패하도록 설계되어 있습니다. 로컬에서 SITE_URL을 설정하지 않으면 주소 확인 항목도 표시됩니다. 소스 빌드 오류를 의미하지 않습니다.
 
 사진 반영 화면은 qa/home-photos-desktop.png 및 qa/home-photos-mobile.png에 보관합니다. qa/home-desktop.png 및 qa/home-mobile.png는 사진 반영 전 기록입니다. qa는 GitHub 소스 압축에서 제외합니다.

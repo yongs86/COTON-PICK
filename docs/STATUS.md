@@ -14,8 +14,8 @@
 1. 확정 A-2 로고/시안 원본 확보
 2. Mark.astro·favicon·OG에 확정 BI 반영
 3. 예시 글을 실제 콘텐츠로 교체하거나 draft 처리. sample false는 사실 확인 후 적용
-4. GitHub 소스 게시 완료(yongs86/COTON-PICK). Pages 연결, SITE_URL 설정 및 OG PNG 확인 진행
-5. 운영 주소에서 검색·상세·404·sitemap 재확인
+4. 배포 완료: https://coton-pick.pages.dev/ (GitHub main 자동 배포). SITE_URL 설정 및 SITE_STAGE=preview 적용
+5. 실제 콘텐츠와 확정 BI 검수 후 정식 공개가 필요하면 SITE_STAGE=production으로 변경해 재배포
 
 ## 새 세션 실행 지시문
 이 폴더 README.md와 docs/OPERATIONS.md를 읽고 기존 MVP를 이어서 수정하세요. 실제 앙두 사진 3장은 반영되어 있습니다. 디자인·기능 범위는 유지하고 확정 A-2 로고 원본이 제공되면 반영하세요. 예시 글을 실제 경험으로 임의 변경하지 마세요. 변경 후 pnpm check, pnpm build, pnpm verify를 실행하고 필요할 때 pnpm release-check로 공개 준비 상태를 보고하세요. GitHub·Cloudflare 연결은 실제 계정과 저장소 정보가 있을 때 수행하세요.

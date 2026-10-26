@@ -8,7 +8,7 @@
 - Markdown 예시 6편. 모두 예시 배지 및 안내문 표시. 예시 상세는 noindex, sitemap에서 제외
 - Instagram은 `https://www.instagram.com/andu.coton/` 외부 링크. 로그인·API·피드 자동 수집 없음
 - **사용자가 첨부한 실제 앙두 사진 3장 반영.** 홈 대표·소개·콘텐츠 카드·상세에 배치. 확정 A-2 로고 원본은 미확보 상태로 심볼은 임시 벡터 유지
-- GitHub 소스 게시 완료: [yongs86/COTON-PICK](https://github.com/yongs86/COTON-PICK). Cloudflare 연결·배포는 진행 중
+- 사이트 배포 완료: [coton-pick.pages.dev](https://coton-pick.pages.dev/). GitHub 소스: [yongs86/COTON-PICK](https://github.com/yongs86/COTON-PICK). main 변경 시 Cloudflare Pages 자동 배포
 - 초기 배포 기본값은 `SITE_STAGE=preview`: 미리보기 안내, 전체 noindex, robots 제외, 빈 sitemap. 정식 공개 시 production으로 변경 후 재빌드
 
 ## 실행
@@ -55,4 +55,4 @@ pnpm preview
 
 한국어 언어 설정, 페이지별 제목·설명·canonical, Open Graph·JSON-LD, robots·sitemap, 시맨틱 요소, 본문 이동 링크, 키보드 초점, 검색 상태 안내, 버튼의 선택 상태, reduced-motion 반영. 사진은 Astro 빌드에서 WebP로 최적화하고 SVG 표시 영역으로 첨부 이미지의 검은 상하 여백을 제외합니다. 원본 PNG는 그대로 보존하며 외부 폰트를 호출하지 않습니다.
 
-기본 배포 주소는 **설정 예시** `https://coton-pick.pages.dev`이며 소유·사용 가능 여부는 확인하지 않았습니다. 실제 주소를 `SITE_URL` 환경변수에 넣어 빌드해야 합니다. 공유용 OG 이미지는 `public/og.png`(1200×630)이며 원본은 `public/og.svg`입니다. 확정 BI 반영 시 두 파일을 함께 갱신하세요.
+현재 배포 주소는 `https://coton-pick.pages.dev`이며 Cloudflare의 `SITE_URL` 환경변수에 반영했습니다. 주소를 변경하면 환경변수도 수정 후 재배포합니다. 공유용 OG 이미지는 `public/og.png`(1200×630)이며 원본은 `public/og.svg`입니다. 확정 BI 반영 시 두 파일을 함께 갱신하세요.
