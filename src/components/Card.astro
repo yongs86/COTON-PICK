@@ -1,0 +1,16 @@
+---
+import Photo from './Photo.astro';
+import { sections, postUrl, displayDate, type Post } from '../lib/content';
+interface Props { post: Post }
+const { post } = Astro.props;
+---
+<article class="card">
+  <a class="card-link" href={postUrl(post)}>
+    <div class="card-image"><Photo name={post.data.image} alt={post.data.imageAlt}/><span class="image-label">{post.data.category}</span></div>
+    <div class="card-body">
+      <p class="eyebrow">{sections[post.data.section].title} {post.data.sample && <span class="sample-label">예시 콘텐츠</span>}</p>
+      <h3>{post.data.title}</h3><p>{post.data.description}</p>
+      <div class="card-meta"><span>{post.data.location || displayDate(post.data.date)}</span><span aria-hidden="true">↗</span></div>
+    </div>
+  </a>
+</article>

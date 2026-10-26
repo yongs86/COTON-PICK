@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import Card from '../components/Card.astro';
+import { allPosts } from '../lib/content';
+const posts = await allPosts();
+---
+<Base>
+  <section class="hero wrap">
+    <div class="hero-copy"><p class="eyebrow">FOR COTON, WITH LOVE</p><h1>꼬똥을 위한<br/>모든 <span>선택.</span></h1><p class="hero-description">몽글몽글한 일상부터, 함께 가는 낯선 곳까지.<br/>앙두와 함께 하나씩 골라 담아요.</p><div class="hero-buttons"><a class="button" href="/stories/">앙두의 하루 만나기 <span aria-hidden="true">↗</span></a><a class="text-link" href="/guides/">꼬똥 가이드 보기 <span aria-hidden="true">→</span></a></div><div class="hero-note"><span class="tiny-paw" aria-hidden="true">✳</span> 작은 꼬똥의 세상, 더 넓고 다정하게.</div></div>
+    <div class="hero-visual"><div class="hero-photo"><Photo name="andu-01" alt="앙두의 대표 사진" eager/></div><span class="hero-stamp">a little coton,<br/><strong>a lot of love.</strong></span><div class="hero-photo-tag"><span class="status-dot"></span> MEET ANDU <span>안녕, 나는 앙두야!</span></div></div>
+  </section>
+  <div class="ticker" aria-hidden="true"><span>EVERY LITTLE CHOICE</span><span>✳</span><span>WITH MY COTON</span><span>✳</span><span>EVERY LITTLE CHOICE</span><span>✳</span><span>WITH MY COTON</span></div>
+  <section class="section wrap"><div class="section-heading"><div><p class="eyebrow">PICK YOUR MOMENT</p><h2>우리의 하루를 채우는 것들</h2></div><p class="section-caption">꼬똥과 함께라서 더 좋은 세 가지.</p></div><div class="category-grid">
+    <a class="category-tile" href="/stories/"><span class="tile-icon" aria-hidden="true">✳</span><span><small>01 / ANDU’S JOURNAL</small><h3>앙두 스토리</h3><p>평범해서 더 소중한, 앙두의 하루</p></span><span class="tile-arrow" aria-hidden="true">↗</span></a>
+    <a class="category-tile" href="/guides/"><span class="tile-icon" aria-hidden="true">☷</span><span><small>02 / LIFE WITH COTON</small><h3>꼬똥 가이드</h3><p>함께하는 생활을 위한 작은 힌트</p></span><span class="tile-arrow" aria-hidden="true">↗</span></a>
+    <a class="category-tile" href="/places/"><span class="tile-icon" aria-hidden="true">⌖</span><span><small>03 / PLACES TOGETHER</small><h3>꼬똥 플레이스</h3><p>나란히 걷고, 함께 머무는 곳</p></span><span class="tile-arrow" aria-hidden="true">↗</span></a>
+  </div></section>
+  <section class="featured-section"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">LITTLE DAYS, LOVELY STORIES</p><h2>오늘의 꼬똥픽</h2></div><a class="text-link" href="/stories/">스토리 더 보기 <span aria-hidden="true">↗</span></a></div><p class="editor-note">지금 보이는 글은 사이트 구성을 위한 예시입니다. 실제 앙두의 기록과 확인한 장소로 차곡차곡 채워갑니다.</p><div class="card-grid">{['stories','guides','places'].map(section => posts.find(p=>p.data.section===section)).filter(Boolean).map(post => post && <Card post={post}/>)}</div></div></section>
+  <section class="andu-about wrap"><div class="about-photo"><Photo name="andu-02" alt="앙두의 일상 사진"/></div><div class="about-copy"><p class="eyebrow">A NOTE FROM ANDU</p><h2>작고 하얀 친구가<br/>바꿔 놓은 일상.</h2><p>꼬똥픽은 앙두와 함께하는 생활에서 시작합니다.<br/>무엇을 준비할지, 어디를 함께 걸을지.<br/>매일의 작은 선택을 차분히 기록하려고 해요.</p><a class="text-link" href="https://www.instagram.com/andu.coton/" target="_blank" rel="noopener noreferrer">앙두의 인스타그램 @andu.coton ↗<span class="sr-only"> (새 창)</span></a></div></section>
+  <section class="instagram-band"><div class="wrap"><div><p class="eyebrow">LET’S STAY CLOSE</p><h2>우리, 인스타그램에서도 만나요.</h2><p>앙두의 더 가까운 일상은 @andu.coton에서.</p></div><a class="button button-light" href="https://www.instagram.com/andu.coton/" target="_blank" rel="noopener noreferrer">@andu.coton <span aria-hidden="true">↗</span><span class="sr-only"> (새 창)</span></a></div></section>
+</Base>

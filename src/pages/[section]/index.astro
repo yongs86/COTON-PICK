@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import Card from '../../components/Card.astro';
+import { allPosts, sections, type Section } from '../../lib/content';
+export function getStaticPaths() { return Object.keys(sections).map(section => ({params:{section}})); }
+const section = Astro.params.section as Section;
+const info = sections[section];
+const posts = (await allPosts()).filter(post=>post.data.section === section);
+const categories = [...new Set(posts.map(p=>p.data.category))];
+---
+<Base title={info.title} description={info.intro}>
+  <div class="wrap listing-page"><nav class="breadcrumb" aria-label="현재 위치"><a href="/">홈</a><span aria-hidden="true">/</span><span aria-current="page">{info.title}</span></nav><div class="page-intro"><p class="eyebrow">{info.en}</p><h1>{info.title}<span class="heading-flower" aria-hidden="true">✳</span></h1><p class="page-lead">{info.description}</p><p>{info.intro}</p></div>
+    <div class="filter-row" role="group" aria-label="카테고리 필터"><button class="chip" data-filter="전체" aria-pressed="true">전체</button>{categories.map(category=><button class="chip" data-filter={category} aria-pressed="false">{category}</button>)}</div>
+    <div class="results-meta" role="status" aria-live="polite"><span id="result-count">{posts.length}</span>개의 기록 <span>예시 콘텐츠 포함</span></div>
+    <div class="card-grid listing-grid">{posts.map(post=><div data-category={post.data.category}><Card post={post}/></div>)}</div>
+  </div>
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    const cards = document.querySelectorAll<HTMLElement>('[data-category]');
+    buttons.forEach(button=>button.addEventListener('click',()=>{
+      buttons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+      let count=0;
+      cards.forEach(card=>{ card.hidden = button.dataset.filter !== '전체' && card.dataset.category !== button.dataset.filter; if(!card.hidden) count++; });
+      const counter=document.getElementById('result-count'); if(counter) counter.textContent=String(count);
+    }));
+  </script>
+</Base>

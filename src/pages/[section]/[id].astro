@@ -1,0 +1,24 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import Card from '../../components/Card.astro';
+import { allPosts, sections, displayDate, type Post } from '../../lib/content';
+export async function getStaticPaths(){ return (await allPosts()).map(post=>({ params: {section:post.data.section,id:post.id}, props:{post} })); }
+interface Props { post: Post }
+const {post} = Astro.props;
+const {Content} = await render(post);
+const info = sections[post.data.section];
+const related = (await allPosts()).filter(p=>p.data.section === post.data.section && p.id !== post.id).slice(0,2);
+---
+<Base title={post.data.title} description={post.data.description} noindex={post.data.sample} article date={post.data.date}>
+  <div class="wrap article-page"><nav class="breadcrumb" aria-label="현재 위치"><a href="/">홈</a><span>/</span><a href={`/${post.data.section}/`}>{info.title}</a><span>/</span><span aria-current="page">상세</span></nav>
+    <article><header class="article-header"><p class="eyebrow">{post.data.category} {post.data.sample && <span class="sample-label">예시 콘텐츠</span>}</p><h1>{post.data.title}</h1><p class="article-description">{post.data.description}</p><div class="article-meta"><span>COTON PICK EDITOR</span><time datetime={post.data.date}>{displayDate(post.data.date)}</time></div></header>
+      <div class="article-cover"><Photo name={post.data.image} alt={post.data.imageAlt} eager/></div>
+      <div class="article-content">{post.data.sample && <aside class="notice"><strong>콘텐츠 작성 예시입니다.</strong><p>실제 앙두의 경험이나 검증된 장소 추천이 아닙니다. 운영자가 사실·사진·방문 조건을 확인한 뒤 정식 콘텐츠로 교체합니다.</p></aside>}
+      {post.data.location && <dl class="place-facts"><dt>지역</dt><dd>{post.data.location}</dd><dt>정보 상태</dt><dd>{post.data.checkedAt || '방문 및 이용 조건 확인 전'}</dd></dl>}
+      <div class="prose"><Content/></div><ul class="tags" aria-label="태그">{post.data.tags.map(tag=><li><a href={`/search/?q=${encodeURIComponent(tag)}`}>#{tag}</a></li>)}</ul><a class="text-link" href={`/${post.data.section}/`}>← {info.title} 목록으로</a></div>
+    </article>
+    {related.length>0 && <section class="related"><div class="section-heading"><h2>이어서 읽어보세요</h2></div><div class="card-grid">{related.map(item=><Card post={item}/>)}</div></section>}
+  </div>
+</Base>

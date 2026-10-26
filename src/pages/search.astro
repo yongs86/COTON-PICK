@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="검색" noindex>
+<div class="wrap search-page"><div class="page-intro"><p class="eyebrow">FIND YOUR LITTLE PICK</p><h1>무엇이 궁금하세요?</h1><p>앙두의 일상, 생활 가이드, 함께 가는 장소를 찾아보세요.</p></div>
+  <form class="search-form" role="search" action="/search/" method="get"><label for="query" class="sr-only">검색어</label><input id="query" type="search" name="q" maxlength="100" placeholder="산책, 준비물, 플레이스…" autocomplete="off"/><button class="button" type="submit">검색 <span aria-hidden="true">↗</span></button></form>
+  <div class="suggestions"><span>이런 키워드는 어때요?</span>{['산책','준비물','카페'].map(tag=><a class="chip" href={`/search/?q=${encodeURIComponent(tag)}`}>{tag}</a>)}</div>
+  <p id="search-status" role="status" aria-live="polite">검색어를 입력해 주세요.</p><div id="search-results" class="search-results"></div><noscript><p>검색은 JavaScript가 필요합니다. 아래 목록에서 콘텐츠를 확인하실 수 있습니다.</p><a href="/stories/">스토리</a> · <a href="/guides/">가이드</a> · <a href="/places/">플레이스</a></noscript>
+</div>
+<script>
+  interface SearchItem {title:string;description:string;sectionTitle:string;category:string;tags:string[];body:string;url:string;sample:boolean}
+  const form=document.querySelector<HTMLFormElement>('.search-form')!;
+  const input=document.querySelector<HTMLInputElement>('#query')!;
+  const status=document.querySelector<HTMLElement>('#search-status')!;
+  const results=document.querySelector<HTMLElement>('#search-results')!;
+  let index:Promise<SearchItem[]> | undefined;
+  let requestId=0;
+  const normalize=(value:string)=>value.normalize('NFKC').toLocaleLowerCase('ko-KR');
+  async function search(){
+    const id=++requestId;
+    const q=input.value.trim().slice(0,100);
+    const url=new URL(location.href); if(q)url.searchParams.set('q',q); else url.searchParams.delete('q'); history.replaceState(null,'',url);
+    results.replaceChildren();
+    if(!q){status.textContent='검색어를 입력해 주세요.';return;}
+    status.textContent='기록을 찾고 있어요…';
+    try{
+      index??=fetch('/search-index.json').then(response=>{if(!response.ok)throw new Error('검색 파일 오류');return response.json();});
+      const data=await index;
+      if(id!==requestId)return;
+      const terms=normalize(q).split(/\s+/);
+      const matches=data.filter(item=>{const text=normalize([item.title,item.description,item.category,...item.tags,item.body].join(' '));return terms.every(term=>text.includes(term));});
+      status.textContent=`“${q}” 검색 결과 ${matches.length}개${matches.length===0 ? ' · 다른 키워드로 찾아보세요.' : ''}`;
+      for(const item of matches){
+        const article=document.createElement('article'); const link=document.createElement('a');link.href=item.url;
+        const meta=document.createElement('p');meta.className='eyebrow';meta.textContent=`${item.sectionTitle} / ${item.category}${item.sample?' · 예시 콘텐츠':''}`;
+        const title=document.createElement('h2');title.textContent=item.title;
+        const description=document.createElement('p');description.textContent=item.description;
+        link.append(meta,title,description);article.append(link);results.append(article);
+      }
+    }catch{if(id!==requestId)return;index=undefined;status.textContent='검색을 불러오지 못했습니다. 잠시 후 다시 검색해 주세요.';}
+  }
+  input.value=new URLSearchParams(location.search).get('q')?.slice(0,100)||'';
+  form.addEventListener('submit',event=>{event.preventDefault();void search();});
+  void search();
+</script>
+</Base>

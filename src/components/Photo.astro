@@ -1,0 +1,23 @@
+---
+import { getImage } from 'astro:assets';
+import portrait from '../assets/andu-01.png';
+import indoor from '../assets/andu-02.png';
+import forest from '../assets/andu-03.png';
+interface Props { name: string; alt: string; eager?: boolean; class?: string }
+const { name, alt, class: className = '' } = Astro.props;
+const photos = {
+  'andu-01': { src: portrait, top: 486, bottom: 2250 },
+  'andu-02': { src: indoor, top: 528, bottom: 2208 },
+  'andu-03': { src: forest, top: 528, bottom: 2208 },
+};
+const photo = photos[name as keyof typeof photos];
+if (!photo) throw new Error(`등록되지 않은 사진: ${name}`);
+const optimized = await getImage({ src: photo.src, width: 1000, format: 'webp', quality: 82 });
+// 첨부 PNG는 그대로 보존하고 SVG 표시 영역으로 상하 검은 여백만 제외합니다.
+const viewBox = `0 ${photo.top} ${photo.src.width} ${photo.bottom - photo.top}`;
+---
+<div class:list={['photo', className]} data-photo={name}>
+  <svg class="actual-photo" viewBox={viewBox} preserveAspectRatio="xMidYMid slice" role="img" aria-label={alt}>
+    <image href={optimized.src} width={photo.src.width} height={photo.src.height} />
+  </svg>
+</div>
