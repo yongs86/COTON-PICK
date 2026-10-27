@@ -17,7 +17,10 @@ for(const file of htmlFiles){
     const target=path.join(root,pathname.endsWith('/')?`${pathname}index.html`:pathname);
     try{await access(target);}catch{errors.push(`${path.relative(root,file)}: 끊어진 경로 ${pathname}`);}
   }
-  for(const match of html.matchAll(/<img\b[^>]*>/g))if(!/alt="[^"]+"/.test(match[0]))errors.push(`${file}: 이미지 대체 텍스트 누락`);
+  for(const match of html.matchAll(/<img\b[^>]*>/g)){
+    const decorative = /aria-hidden="true"/.test(match[0]);
+    if(!/alt="[^"]*"/.test(match[0]) || (!decorative && /alt=""/.test(match[0])))errors.push(`${file}: 이미지 대체 텍스트 누락`);
+  }
 }
 const index=JSON.parse(await readFile(path.join(root,'search-index.json'),'utf8'));
 const home = await readFile(path.join(root,'index.html'),'utf8');

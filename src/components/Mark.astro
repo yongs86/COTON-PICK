@@ -1,10 +1,6 @@
 ---
-import symbol from '../assets/andu-symbol.svg?raw';
 interface Props { size?: number }
 const {size = 48} = Astro.props;
-const artwork = symbol.trim().replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
 ---
-<!-- 앙두의 긴 귀와 머리 묶음을 반영한 선형 심볼. -->
-<svg width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false">
-  <Fragment set:html={artwork}/>
-</svg>
+<!-- 사용자가 승인한 B안 이미지를 그대로 사용합니다. -->
+<img src="/brand/andu-approved-b.webp" width={size} height={size} alt="" aria-hidden="true" decoding="async" />

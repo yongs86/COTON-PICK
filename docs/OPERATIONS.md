@@ -56,8 +56,9 @@ draft: true
 1. 실제 사진 3장은 `src/assets/andu-01.png`~`andu-03.png`로 반영되어 있습니다. 추가·교체 기준은 `src/assets/README.md`를 확인합니다.
 2. 원본 사진 촬영 사실을 글의 경험과 연결할 때 실제 촬영 장소·날짜를 확인합니다. 원본만으로 확인되지 않는 사실은 적지 않습니다.
 3. 각 Markdown의 imageAlt를 실제 장면과 일치시킵니다. 홈의 Photo alt도 수정합니다.
-4. 로고 심볼 원본은 `src/assets/andu-symbol.svg`입니다. `Mark.astro`가 이 원본을 표시하며 빌드 시 `scripts/sync-brand.mjs`가 공개 SVG와 파비콘을 동기화합니다. 원본 한 곳을 수정하고 재빌드합니다.
-5. 목록·상세·홈을 모바일과 PC에서 확인합니다.
+4. 로고 원본은 승인된 B안 `src/assets/andu-logo-approved-b.png`입니다. 빌드 시 `scripts/sync-brand.mjs`가 바깥 여백을 정리하고 비율을 유지해 PNG·WebP·파비콘을 생성합니다. SVG 경로는 호환용 이미지 래퍼이며 벡터 로고가 아닙니다.
+5. 이후 디자인 변경은 반드시 시안 이미지를 먼저 보여주고 사용자 승인을 받은 뒤 사이트에 반영합니다. 승인된 그림의 형태·표정·색상을 임의로 다시 그리지 않습니다.
+6. 목록·상세·홈을 모바일과 PC에서 확인합니다.
 
 ## 검색과 목록의 계산 기준
 
