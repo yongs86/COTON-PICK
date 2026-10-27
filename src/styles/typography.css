@@ -1,0 +1,61 @@
+@font-face{font-family:'NanumSquareRound';src:url('/fonts/NanumSquareRoundB.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('/fonts/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('/fonts/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+:root{--sans:'Pretendard','Malgun Gothic',sans-serif;--muted:#425b53}
+body{font-family:var(--sans);font-size:16px;font-synthesis:none}
+.hero h1,.section-heading h2,.category-tile h3,.card-body h3,.about-copy h2,.instagram-band h2{font-family:'NanumSquareRound',sans-serif;font-weight:700;letter-spacing:-.025em}
+.hero h1{font-size:clamp(44px,4.5vw,64px);line-height:1.38}
+.hero-description{font-size:17px;line-height:1.85}
+.desktop-nav{font-size:16px;font-weight:600}
+.button{font-size:15px;font-weight:600}
+.text-link{font-size:14px;font-weight:600}
+.hero-note{font-size:13px}
+.eyebrow{font-size:12px;letter-spacing:.1em}
+.section-heading h2{font-size:31px}
+.section-caption{font-size:15px}
+.category-tile small{font-size:10px}
+.category-tile h3{font-size:21px}
+.category-tile p{font-size:14px;line-height:1.7}
+.category-tile{align-items:center}
+.editor-note{font-size:13px;line-height:1.8}
+.card-body>.eyebrow{font-size:12px}
+.sample-label{font-size:11px}
+.card-body h3{font-size:23px;line-height:1.55}
+.card-body>p:not(.eyebrow){font-size:16px;line-height:1.8}
+.card-meta{font-size:12px}
+.image-label{font-size:12px}
+.about-copy>p:not(.eyebrow){font-size:16px;line-height:1.9}
+.about-copy h2{font-size:38px;line-height:1.5}
+.instagram-band h2{font-size:28px}
+.instagram-band p:not(.eyebrow){font-size:15px}
+.footer-top p{font-size:13px}
+.footer-links{font-size:13px}
+.footer-brand span{font-size:12px}
+.footer-bottom{font-size:11px}
+.topline{font-size:12px}
+@media(max-width:700px){
+  .topline{font-size:11px}
+  .mobile-nav a{font-size:14px;font-weight:600}
+  .hero h1{font-size:44px;margin-block:18px 20px}
+  .hero-description{font-size:16px;line-height:1.85}
+  .hero-note{font-size:12px}
+  .hero-buttons{gap:13px}
+  .eyebrow{font-size:11px}
+  .section-heading h2{font-size:26px}
+  .featured-section .section-heading .text-link{font-size:12px}
+  .category-tile small{font-size:10px}
+  .category-tile h3{font-size:21px}
+  .category-tile p{font-size:14px}
+  .editor-note{font-size:12px}
+  .card-body>.eyebrow{font-size:12px}
+  .card-body h3{font-size:23px}
+  .card-body>p:not(.eyebrow){font-size:16px}
+  .about-copy h2{font-size:33px}
+  .about-copy>p:not(.eyebrow){font-size:16px}
+  .instagram-band h2{font-size:25px}
+  .instagram-band p:not(.eyebrow){font-size:14px}
+  .footer-links{font-size:13px}
+  .footer-bottom{font-size:10px}
+}
+
+

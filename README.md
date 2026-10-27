@@ -4,6 +4,7 @@
 
 ## 현재 상태
 
+- 승인된 폰트 A안 적용: 제목 나눔스퀘어라운드 Bold, 본문 Pretendard Regular, 메뉴·버튼 SemiBold. 웹폰트는 `public/fonts/`에서 직접 제공하며 라이선스는 하위 `licenses/`에 보관
 - 홈, 앙두 스토리/꼬똥 가이드/꼬똥 플레이스 목록·상세, 카테고리 필터, 통합 검색, 404 구현
 - Markdown 예시 6편. 모두 예시 배지 및 안내문 표시. 예시 상세는 noindex, sitemap에서 제외
 - Instagram은 `https://www.instagram.com/andu.coton/` 외부 링크. 로그인·API·피드 자동 수집 없음
@@ -41,6 +42,7 @@ pnpm preview
 | `src/components/` | 카드, 사진, 심볼 표시 |
 | `src/assets/andu-logo-approved-b.png` | 승인된 B안 원본, 빌드 때 웹용 이미지·파비콘 생성 |
 | `src/styles/global.css` | 브랜드 색상·레이아웃·반응형 |
+| `src/styles/typography.css` | 승인된 A안 서체·크기·굵기·텍스트 색상 |
 | `src/assets/andu-*.png` | 사용자 제공 앙두 사진 원본, 빌드 시 WebP 최적화 |
 | `docs/OPERATIONS.md` | 작성·검수·운영 기준 |
 | `docs/DEPLOYMENT.md` | GitHub·Cloudflare Pages 배포 |

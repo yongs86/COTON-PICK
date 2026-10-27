@@ -4,3 +4,4 @@
 - 사용자가 시안을 지정하고 진행을 지시하면 해당 이미지의 적용 승인으로 봅니다. 승인된 그림의 형태·표정·색상을 임의로 다시 그리거나 SVG로 재해석하지 않습니다. 여백 정리·비율 유지 축소·포맷 최적화는 가능합니다.
 - 형태·표정·색상 등 디자인 수정이 필요하면 수정 이미지를 다시 확인받습니다.
 - 현재 승인된 로고는 B안입니다. 원본: src/assets/andu-logo-approved-b.png. 빌드 시 scripts/sync-brand.mjs에서 상단 심볼과 파비콘을 생성합니다.
+- 현재 승인된 서체는 A안입니다. 제목은 나눔스퀘어라운드 Bold, 본문은 Pretendard Regular, 메뉴·버튼은 SemiBold입니다. 승인 시안은 ../design-previews/font-a/에 있으며 src/styles/typography.css에 적용합니다.
